@@ -3,13 +3,15 @@ import styled from 'styled-components';
 
 const MenuItem = styled.div`
   min-width: 30%;
-  height: 240px;
+  height: ${props => (props.size ? '380px' : '240px')};
   flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid black;
   margin: 0 7.5px 15px;
+  background-position: center;
+  background-size: cover;
 
   &:first-child {
     margin-right: 7.5px;
@@ -42,9 +44,9 @@ const Subtitle = styled.span`
   font-size: 16px;
 `;
 
-export const Menu = ({ title }) => {
+export const Menu = ({ title, imageUrl, size }) => {
   return (
-    <MenuItem>
+    <MenuItem style={{ backgroundImage: `url(${imageUrl})` }} size={size}>
       <Content>
         <Title>{title}</Title>
         <Subtitle>Shop Now</Subtitle>
