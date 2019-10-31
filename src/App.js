@@ -12,12 +12,48 @@ const HatsPage = () => {
   );
 };
 
+const JacketsPage = () => {
+  return (
+    <div>
+      <h1>JacketsPage</h1>
+    </div>
+  );
+};
+
+const SneakersPage = () => {
+  return (
+    <div>
+      <h1>SneakersPage</h1>
+    </div>
+  );
+};
+
+const WomensPage = () => {
+  return (
+    <div>
+      <h1>WomensPage</h1>
+    </div>
+  );
+};
+
+const MensPage = () => {
+  return (
+    <div>
+      <h1>MensPage</h1>
+    </div>
+  );
+};
+
 function App() {
   return (
     <div>
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/hats" component={HatsPage} />
+        <Route exact path="/hats" component={HatsPage} />
+        <Route exact path="/Jackets" component={JacketsPage} />
+        <Route exact path="/sneakers" component={SneakersPage} />
+        <Route exact path="/womens" component={WomensPage} />
+        <Route path="/mens" component={MensPage} />
       </Switch>
     </div>
   );
