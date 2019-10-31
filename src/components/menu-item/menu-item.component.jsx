@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 
 const MenuItem = styled.div`
   min-width: 30%;
@@ -64,9 +65,12 @@ const BackgroundImage = styled.div`
   background-size: cover;
 `;
 
-export const Menu = ({ title, imageUrl, size }) => {
+const Menu = ({ title, imageUrl, size, history, linkUrl, match }) => {
   return (
-    <MenuItem size={size}>
+    <MenuItem
+      size={size}
+      onClick={() => history.push(`${match.url}${linkUrl}`)}
+    >
       <BackgroundImage style={{ backgroundImage: `url(${imageUrl})` }} />
       <Content>
         <Title>{title}</Title>
@@ -75,3 +79,5 @@ export const Menu = ({ title, imageUrl, size }) => {
     </MenuItem>
   );
 };
+
+export default withRouter(Menu);
